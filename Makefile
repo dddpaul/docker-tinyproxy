@@ -1,7 +1,7 @@
 .PHONY: all build release
 
 IMAGE=dddpaul/tinyproxy
-VERSION=1.8.3
+VERSION=1.10.0
 
 all: build
 

@@ -1,14 +1,14 @@
-FROM debian:jessie
+FROM debian:sid
 MAINTAINER dddpaul@gmail.com
 
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y tinyproxy=1.8.3-3+b1 \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y tinyproxy=1.10.0-2 \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/*
 
 RUN mkdir /logs \
-    && sed -i -e 's|^Logfile\(.*\)|#Logfile\1|; s|^PidFile.*|PidFile "/logs/tinyproxy.pid"|' /etc/tinyproxy.conf \
-    && echo "Allow  0.0.0.0/0" >> /etc/tinyproxy.conf
+    && sed -i -e 's|^LogFile\(.*\)|#LogFile\1|' /etc/tinyproxy/tinyproxy.conf \
+    && echo "Allow  0.0.0.0/0" >> /etc/tinyproxy/tinyproxy.conf
 
 COPY entry.sh entry.sh
 
