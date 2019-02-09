@@ -49,7 +49,7 @@ if [ $# == 0  ] || [ "${1#-}" != "$1" ]             ##### in case of no argument
                         echo "Upstream none \"$3\""       >> /tmp/tinyproxy.add
                         shift 3               || exitus 3 "wrong usage of '$1 $2' -- see tinyproxy man page"
                      ;;
-                  -LogLevel|-Allow|-Deny|-FilterDefaultDeny|-ConnectPort)   ##### most common options
+                  -LogLevel|-Allow|-Deny|-FilterDefaultDeny|-FilterURLs|-ConnectPort)   ##### most common options
                         optionsgrep="^${1#-}|$optionsgrep"
                         echo "${1#-} $2"               >> /tmp/tinyproxy.add
                         shift 2               || exitus 3 "wrong usage of '$1' -- see tinyproxy man page"
