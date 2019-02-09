@@ -1,8 +1,8 @@
 FROM debian:jessie
-MAINTAINER r.gilles@telekom.de
+MAINTAINER dddpaul@gmail.com
 
-RUN    apt-get update   \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y tinyproxy \
+RUN apt-get update   \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y tinyproxy=1.8.3-3+b1 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY entry.sh entry.sh
